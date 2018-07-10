@@ -297,13 +297,20 @@ namespace Bonsai.Objects.Cameras
         public float HorizonVisible(Vector3 location, float height)
         {
             Vector3 horizonPoint = new Vector3(location.X, height, location.Z);
+
             return frustumPlanes[5].Dot(horizonPoint); 
-            float dot1 = frustumPlanes[4].Dot(horizonPoint);
-            float dot2 = frustumPlanes[5].Dot(horizonPoint);
-            if ((dot1 < 0) || (dot2 < 0))
-                return Math.Min(dot1, dot2);
-            else
-                return Math.Max(dot1, dot2);
+
+            //float dot1 = frustumPlanes[4].Dot(horizonPoint);
+            //float dot2 = frustumPlanes[5].Dot(horizonPoint);
+
+            //if ((dot1 < 0) || (dot2 < 0))
+            //{
+            //    return Math.Min(dot1, dot2);
+            //}
+            //else
+            //{
+            //    return Math.Max(dot1, dot2);
+            //}
         }
 
         public void Shake(double currentTime, double duration, float displacement, double frequency)
