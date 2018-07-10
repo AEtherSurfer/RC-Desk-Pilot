@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bonsai", "Bonsai\Bonsai.csproj", "{7BF988CF-D9FF-4372-8E9C-B31D577D94D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RCDeskPilot.API", "RCDeskPilot.API\RCDeskPilot.API.csproj", "{2CC8EC3A-672C-4705-A880-6F3A626D1A4E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RcDeskPilot.Api", "RcDeskPilot.Api\RcDeskPilot.Api.csproj", "{2CC8EC3A-672C-4705-A880-6F3A626D1A4E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RCSim", "RCSim\RCSim.csproj", "{677AD6E4-500B-4962-A1A2-27A12128E8D5}"
 EndProject

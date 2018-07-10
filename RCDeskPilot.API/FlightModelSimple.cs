@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.DirectX;
-
-namespace RCDeskPilot.API
+﻿namespace RcDeskPilot.Api
 {
+    using Microsoft.DirectX;
+    using System;
+
     public class FlightModelSimple : IDisposable
     {
         #region Public properties

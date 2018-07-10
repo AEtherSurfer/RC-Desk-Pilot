@@ -1,25 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-using Bonsai.Core;
-using Bonsai.Core.Controls;
-using Microsoft.DirectX;
-using Microsoft.DirectX.Direct3D;
-using Bonsai.Objects;
-using Bonsai.Objects.Meshes;
-using Bonsai.Core.Interfaces;
-using Bonsai.Objects.Shaders;
-using Bonsai.Objects.Terrain;
-using RCSim.Interfaces;
-using RCSim.DataClasses;
-using System.Reflection;
-using Bonsai.Sound;
-using RCSim.Effects;
-using Bonsai.Objects.Collision;
-
-namespace RCSim
+﻿namespace RCSim
 {
+    using Bonsai.Core;
+    using Bonsai.Core.Interfaces;
+    using Bonsai.Objects;
+    using Bonsai.Objects.Collision;
+    using Bonsai.Objects.Meshes;
+    using Bonsai.Objects.Terrain;
+    using Bonsai.Sound;
+    using Microsoft.DirectX;
+    using Microsoft.DirectX.Direct3D;
+    using RCSim.DataClasses;
+    using RCSim.Effects;
+    using RCSim.Interfaces;
+    using System;
+    using System.Collections.Generic;
+    using System.Reflection;
+
     internal class Player : IFrameworkCallback, IDisposable
     {
         #region Private fields
@@ -324,8 +320,8 @@ namespace RCSim
                     string assemblyInfo = Bonsai.Utils.Settings.GetValue("ApiFlightModel");
                     string[] assemblyParts = assemblyInfo.Split(',', ';');
                     Assembly assembly = Assembly.LoadFrom(assemblyParts[0]);
-                    RCDeskPilot.API.FlightModelSimple flightModelSimple = 
-                        assembly.CreateInstance(assemblyParts[1]) as RCDeskPilot.API.FlightModelSimple;
+                    RcDeskPilot.Api.FlightModelSimple flightModelSimple = 
+                        assembly.CreateInstance(assemblyParts[1]) as RcDeskPilot.Api.FlightModelSimple;
                     modelApi = new FlightModelApi();
                     modelApi.ApiModel = flightModelSimple;
                     iFlightModel = modelApi;

@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using RCSim.DataClasses;
-using System.Diagnostics;
-using Bonsai.Core;
-using Microsoft.DirectX;
-using Bonsai.Objects.Terrain;
-using RCSim.Interfaces;
-using System.Threading;
-using RCDeskPilot.API;
-
-namespace RCSim
+﻿namespace RCSim
 {
+    using Bonsai.Core;
+    using Bonsai.Objects.Terrain;
+    using Microsoft.DirectX;
+    using RcDeskPilot.Api;
+    using RCSim.DataClasses;
+    using RCSim.Interfaces;
+    using System;
+    using System.Collections.Generic;
+    using System.Threading;
+
     internal class FlightModelApi : IAirplaneControl, IDisposable, IFlightModel
     {
         #region Private structs
@@ -127,8 +125,8 @@ namespace RCSim
         /// Gets/sets the aircraft parameters.
         /// </summary>
         public RCSim.DataClasses.AircraftParameters AircraftParameters { get; set; }
-        public RCDeskPilot.API.AircraftParameters ApiAircraftParameters { get; set; }
-        public RCDeskPilot.API.FlightModelSimple ApiModel { get; set; }
+        public RcDeskPilot.Api.AircraftParameters ApiAircraftParameters { get; set; }
+        public RcDeskPilot.Api.FlightModelSimple ApiModel { get; set; }
        
         /// <summary>
         /// Gets/Sets the wind vector [m/s]

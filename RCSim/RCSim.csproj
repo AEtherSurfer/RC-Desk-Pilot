@@ -226,9 +226,9 @@
       <Project>{7BF988CF-D9FF-4372-8E9C-B31D577D94D9}</Project>
       <Name>Bonsai</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RCDeskPilot.API\RCDeskPilot.API.csproj">
-      <Project>{2CC8EC3A-672C-4705-A880-6F3A626D1A4E}</Project>
-      <Name>RCDeskPilot.API</Name>
+    <ProjectReference Include="..\RcDeskPilot.Api\RcDeskPilot.Api.csproj">
+      <Project>{2cc8ec3a-672c-4705-a880-6f3a626d1a4e}</Project>
+      <Name>RcDeskPilot.Api</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.DirectX;
-using RCDeskPilot.API;
-using Bonsai.Objects.Terrain;
-using RCSim;
-
-namespace RCSim.Interfaces
+﻿namespace RCSim.Interfaces
 {
+    using Bonsai.Objects.Terrain;
+    using Microsoft.DirectX;
+    using System;
+    using System.Collections.Generic;
+
     interface IFlightModel : IAirplaneControl, IDisposable
     {
         #region Properties
@@ -59,7 +56,7 @@ namespace RCSim.Interfaces
         /// <summary>
         /// Gets/Sets a reference to the water.
         /// </summary>
-        List<Water> Water { get; set; }
+        List<RCSim.Water> Water { get; set; }
 
         /// <summary>
         /// Gets whether the aircraft is in a crashed state.

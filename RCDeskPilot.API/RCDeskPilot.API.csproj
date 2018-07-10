@@ -8,8 +8,8 @@
     <ProjectGuid>{2CC8EC3A-672C-4705-A880-6F3A626D1A4E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RCDeskPilot.API</RootNamespace>
-    <AssemblyName>RCDeskPilot.API</AssemblyName>
+    <RootNamespace>RcDeskPilot.Api</RootNamespace>
+    <AssemblyName>RcDeskPilot.Api</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>

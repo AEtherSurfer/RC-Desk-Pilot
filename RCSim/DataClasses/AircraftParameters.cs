@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Xml;
-
-using Bonsai.Core;
-using Microsoft.DirectX;
-using System.Xml.XPath;
-using System.Globalization;
-using System.IO;
-
-namespace RCSim.DataClasses
+﻿namespace RCSim.DataClasses
 {
+    using Bonsai.Core;
+    using Microsoft.DirectX;
+    using System;
+    using System.Collections.Generic;
+    using System.Globalization;
+    using System.IO;
+    using System.Xml.XPath;
+
     internal class AircraftParameters
     {
         #region Public structs and enums
@@ -880,9 +877,9 @@ namespace RCSim.DataClasses
             return description;
         }
 
-        public RCDeskPilot.API.AircraftParameters CloneToApiParameters( )
+        public RcDeskPilot.Api.AircraftParameters CloneToApiParameters( )
         {
-            RCDeskPilot.API.AircraftParameters apiParameters = new RCDeskPilot.API.AircraftParameters();
+            RcDeskPilot.Api.AircraftParameters apiParameters = new RcDeskPilot.Api.AircraftParameters();
             apiParameters.AileronEfficiency = AileronEfficiency;
             apiParameters.Channels = Channels;
             apiParameters.CrashResistence = CrashResistance;
@@ -895,7 +892,7 @@ namespace RCSim.DataClasses
             apiParameters.EngineMinFrequency = EngineMinFrequency;
             apiParameters.EngineSound = EngineSound;
             apiParameters.FixedMesh = FixedMesh;
-            apiParameters.FlightModelType = (RCDeskPilot.API.AircraftParameters.FlightModelTypeEnum)FlightModelType;
+            apiParameters.FlightModelType = (RcDeskPilot.Api.AircraftParameters.FlightModelTypeEnum)FlightModelType;
             apiParameters.GearPoints = GearPoints;
             apiParameters.HandLaunched = HandLaunched;
             apiParameters.Ixx = Ixx;
