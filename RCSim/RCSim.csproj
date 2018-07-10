@@ -468,7 +468,6 @@
     <None Include="Aircraft\Tiger\tiger_rotor_top.x">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="ClassDiagram1.cd" />
     <None Include="data\bird.x">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
