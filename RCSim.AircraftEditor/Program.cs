@@ -334,7 +334,7 @@ namespace RCSim
         /// </summary>
         public void InitializeApplication()
         {
-            int y = 10;
+            //int y = 10;
             // Initialize the HUD
             //Bonsai.Core.Controls.Button fullScreen = hud.AddButton(ToggleFullscreen, "Toggle full screen", 35, y, 125, 22);
             //Bonsai.Core.Controls.Button changeDevice = hud.AddButton(ChangeDevice, "Change Device (F2)", 35, y += 24, 125, 22);

@@ -10,7 +10,7 @@ namespace RCSim.AircraftEditor.Dialogs
 {
     public partial class NewAircraftStep2Control : UserControl
     {
-        private bool formValid = true;
+        //private bool formValid = true;
         private bool folderEdited = false;
 
         public bool FormValid

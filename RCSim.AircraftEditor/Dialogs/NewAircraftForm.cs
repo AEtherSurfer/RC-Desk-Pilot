@@ -10,7 +10,7 @@ namespace RCSim.AircraftEditor.Dialogs
 {
     internal partial class NewAircraftForm : Form
     {
-        private bool keyValid = false;
+        //private bool keyValid = false;
         private WizardStageEnum wizardStage = WizardStageEnum.Step1;
         private WizardResultEnum wizardResult = WizardResultEnum.NewAircraft;
 

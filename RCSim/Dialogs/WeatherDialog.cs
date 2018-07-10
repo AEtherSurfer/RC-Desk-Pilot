@@ -83,7 +83,7 @@ namespace RCSim.Dialogs
         private StaticText thermalSizeText;
         private StaticText thermalStrengthText;
         private StaticText downDraftsText;
-        private Button buttonFred;
+        //private Button buttonFred;
         #endregion
 
         #region Creation

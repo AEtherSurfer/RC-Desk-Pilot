@@ -40,7 +40,7 @@ namespace RCSim
         #endregion
 
         #region Display
-        public event EventHandler GroundEnabledChanged;
+        //public event EventHandler GroundEnabledChanged;
 
         public bool GroundEnabled
         {

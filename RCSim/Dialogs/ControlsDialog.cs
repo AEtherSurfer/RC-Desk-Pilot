@@ -80,7 +80,7 @@ namespace RCSim.Dialogs
         private Checkbox checkYawExp;
         private ComboBox comboThrottle;
         private Checkbox checkThrottleInv;
-        private Checkbox checkThrottleExp;
+        //private Checkbox checkThrottleExp;
         private ComboBox comboFlaps;
         private ComboBox comboGear;
         

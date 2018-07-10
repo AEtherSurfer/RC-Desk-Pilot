@@ -55,7 +55,7 @@ namespace RCSim.Dialogs
         private Button buttonGraphics;
         private Button buttonSound;
         private Button buttonSimOptions;
-        private Button buttonMultiplayer;
+        //private Button buttonMultiplayer;
         private Button buttonExit;
 
         private StaticText affiliateText;

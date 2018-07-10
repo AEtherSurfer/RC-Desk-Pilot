@@ -37,7 +37,7 @@ namespace RCSim
         protected float gateSize = 3.0f;
         protected float gateHeight = 6.0f;
         protected bool active = false;
-        protected Vector3 previousPosition;
+        protected Vector3 previousPosition = Vector3.Empty;
         protected Program owner = null;
         #endregion
 
@@ -152,6 +152,8 @@ namespace RCSim
         #region Overridden GameObject methods
         public override void OnFrameMove(Microsoft.DirectX.Direct3D.Device device, double totalTime, float elapsedTime)
         {
+            var gatePassedInUse = this.GatePassed != null;
+
 #if !EDITOR            
             float xa = owner.Player.Position.X;
             float ya = owner.Player.Position.Z;
@@ -164,7 +166,7 @@ namespace RCSim
                     (CCW(x1, y1, x2, y2, xa, ya) != CCW(x1, y1, x2, y2, xb, yb)) &&
                     (owner.Player.Position.Y < (Position.Y + gateHeight)))
                 {
-                    if (GatePassed != null)
+                    if (gatePassedInUse)
                     {
                         GatePassed(this, EventArgs.Empty);
                     }

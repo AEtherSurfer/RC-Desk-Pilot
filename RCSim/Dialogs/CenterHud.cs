@@ -74,7 +74,7 @@ namespace RCSim.Dialogs
         private int mouseY = 0;
         private double captionTime = 0;
         private double gameTextTime = 0;
-        private double gameTextDuration = 0;
+        //private double gameTextDuration = 0;
         private Program owner = null;
         private string crashUrl = null;
         private List<StaticText> messages = new List<StaticText>();

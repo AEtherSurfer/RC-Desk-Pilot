@@ -14,7 +14,7 @@ namespace RCSim
         private static XMesh meshWindSock = null;
         private static ShaderBase flagShader = null;
         private static int count = 0;
-        private static TextureBase texture = null;
+        //private static TextureBase texture = null;
         #endregion
 
         #region Constructor

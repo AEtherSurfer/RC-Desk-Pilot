@@ -1448,7 +1448,7 @@ namespace RCSim
                 {
                     // Check for collisions
                     Vector3 floatPointW = positionW + Vector3.TransformCoordinate(floatPoint, Matrix.RotationQuaternion(OrientationQuat));
-                    Vector3 normalW;
+                    //Vector3 normalW;
                     float waterDepth = (float)(0.005f * (Math.Sin(3 * totalSeconds + 2 * floatPointW.X) + Math.Cos(3 * totalSeconds + 2 * floatPointW.Y)));
                     if (floatPointW.Z > waterDepth)
                     {
