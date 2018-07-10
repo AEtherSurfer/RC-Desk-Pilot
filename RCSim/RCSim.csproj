@@ -334,10 +334,10 @@
     <Content Include="Aircraft\SF260\SF260_micro_icon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Aircraft\slope soarer\slopesoarer.png">
+    <Content Include="Aircraft\slopesoarer\slopesoarer.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Aircraft\slope soarer\slopesoarer_text.png">
+    <Content Include="Aircraft\slopesoarer\slopesoarer_text.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Aircraft\Tiger\icon_coax.png">
@@ -438,22 +438,22 @@
     <None Include="Aircraft\SF260\SF260_rudder.x">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Aircraft\slope soarer\sloapsoarer_ail_left.x">
+    <None Include="Aircraft\slopesoarer\sloapsoarer_ail_left.x">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Aircraft\slope soarer\sloapsoarer_ail_right.x">
+    <None Include="Aircraft\slopesoarer\sloapsoarer_ail_right.x">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Aircraft\slope soarer\sloapsoarer_el_left.x">
+    <None Include="Aircraft\slopesoarer\sloapsoarer_el_left.x">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Aircraft\slope soarer\sloapsoarer_el_right.x">
+    <None Include="Aircraft\slopesoarer\sloapsoarer_el_right.x">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Aircraft\slope soarer\sloapsoarer_fixed.x">
+    <None Include="Aircraft\slopesoarer\sloapsoarer_fixed.x">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Aircraft\slope soarer\Slope soarer.par">
+    <None Include="Aircraft\slopesoarer\Slope soarer.par">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Aircraft\Tiger\tiger %28coaxial%29.par">
