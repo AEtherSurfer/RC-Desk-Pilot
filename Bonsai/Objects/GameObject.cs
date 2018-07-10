@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.DirectX;
-using Microsoft.DirectX.Direct3D;
-using Bonsai.Core;
-using Bonsai.Core.Interfaces;
-using Bonsai.Objects.Meshes;
-using Bonsai.Objects.Shaders;
-
-namespace Bonsai.Objects
+﻿namespace Bonsai.Objects
 {
+    using Bonsai.Core;
+    using Bonsai.Core.Interfaces;
+    using Bonsai.Objects.Meshes;
+    using Bonsai.Objects.Shaders;
+    using Microsoft.DirectX;
+    using Microsoft.DirectX.Direct3D;
+    using System;
+    using System.Collections.Generic;
+
     public class GameObject : IFrameworkCallback, IDisposable, ITransparentObject
     {
         #region Public enums
@@ -326,6 +326,7 @@ namespace Bonsai.Objects
             {
                 child.Dispose();
             }
+
             children.Clear();
         }
         #endregion
