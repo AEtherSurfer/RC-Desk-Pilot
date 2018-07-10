@@ -15,7 +15,7 @@ namespace Bonsai.Objects.Meshes
         private TextureBase texture = null;
         private int nVertices;
         private int nIndices;
-        private int nPrimitives;
+        //private int nPrimitives;
         private float size;
         private Vector3 normalVector = new Vector3(0, 0, -1.0f);
         #endregion
@@ -116,7 +116,7 @@ namespace Bonsai.Objects.Meshes
             // set vertex count and index count 
             this.nVertices = 1;
             this.nIndices = 1;
-            this.nPrimitives = 1;
+            //this.nPrimitives = 1;
 
             vertexBuffer = new VertexBuffer(typeof(CustomVertex.PositionColored), nVertices, Framework.Instance.Device, Usage.WriteOnly, CustomVertex.PositionColored.Format, Pool.Default);
             vertexBuffer.Created += new EventHandler(OnCreateVertexBuffer);

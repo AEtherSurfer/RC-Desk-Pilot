@@ -27,7 +27,7 @@ namespace RCSim
         }
 
         #region Private fields
-        private bool playing = false;
+        //private bool playing = false;
         private Program owner = null;
         private RecordedFlight recordedFlight = null;
         private int currentScene = 0;
