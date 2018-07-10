@@ -125,7 +125,7 @@ namespace RCSim.Interfaces
         /// <summary>
         /// Gets/Sets the AircraftParameters.
         /// </summary>
-        RCSim.DataClasses.AircraftParameters AircraftParameters { get; set; }
+        new RCSim.DataClasses.AircraftParameters AircraftParameters { get; set; }
 
         /// <summary>
         /// Gets the Euler angles in world coordinates.
