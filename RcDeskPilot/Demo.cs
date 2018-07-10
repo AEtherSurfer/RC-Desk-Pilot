@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Bonsai.Core.Interfaces;
-using Bonsai.Objects;
-using System.Data;
-using Microsoft.DirectX;
-using System.Drawing;
-using Bonsai.Core;
-
-namespace RcDeskPilot
+﻿namespace RcDeskPilot
 {
+    using Bonsai.Core.Interfaces;
+    using Bonsai.Objects;
+    using Microsoft.DirectX;
+    using System;
+    using System.Collections.Generic;
+    using System.Data;
+    using System.Drawing;
+
     internal class Demo : IFrameworkCallback, IDisposable
     {
         internal class ScheduledMessage
@@ -96,30 +94,13 @@ namespace RcDeskPilot
                 recordedFlight.Dispose();
                 recordedFlight = null;
             }
+
             currentScene = (currentScene + 1) % nScenes;
             recordedFlight = new RecordedFlight(owner);
             scheduledMessages.Clear();
-            switch (currentScene)
-            {
-                case 0:
-                    //Program.Instance.SetWaterCamera(true);
-                    recordedFlight.FileName = "flight0.dat";
-                    //AddScheduledMessage(3, "BMI Beaver 1300 with floats", 160f);
-                    break;
-                case 1:
-                    //Program.Instance.SetWaterCamera(false);
-                    //AddScheduledMessage(3, "BMI Allegro 1500", 160f);
-                    recordedFlight.FileName = "flight1.dat";            
-                    break;
-                case 2:
-                    //AddScheduledMessage(3, "BMI Beaver 1300", 160f);
-                    recordedFlight.FileName = "flight2.dat";            
-                    break;
-                case 3:
-                    //AddScheduledMessage(3, "BMI Arrow 1400", 160f);
-                    recordedFlight.FileName = "flight3.dat";            
-                    break;
-            }
+            
+            recordedFlight.FileName = $"Flights/flight{currentScene}.dat";
+
             Program.Instance.CenterHud.ShowCaption("Flip a switch on the controller\nor press space bar to take control", 100000);
             recordedFlight.Stopped += new EventHandler(recordedFlight_Stopped);
             recordedFlight.Playing = true;

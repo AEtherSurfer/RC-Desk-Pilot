@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Bonsai.Core.Interfaces;
-
-namespace RcDeskPilot
+﻿namespace RcDeskPilot
 {
+    using Bonsai.Core.Interfaces;
+    using System;
+    using System.Collections.Generic;
+
     internal class ComputerPilots : IFrameworkCallback, IDisposable
     {
         #region Private fields
@@ -57,16 +56,19 @@ namespace RcDeskPilot
             RecordedFlight recordedFlight = new RecordedFlight(owner);
             string filename = "";
             bool done = false;
+
             while (!done)
             {
-                filename = string.Format("flight{0}.dat", random.Next(4).ToString());
+                filename = string.Format("Flights/flight{0}.dat", random.Next(4).ToString());
                 done = true;
+
                 foreach (RecordedFlight flight in recordedFlights)
                 {
                     if (flight.FileName.Equals(filename))
                         done = false;
                 }
             }
+
             recordedFlight.FileName = filename;
             recordedFlight.Stopped += new EventHandler(recordedFlight_Stopped);
             recordedFlight.Playing = true;
