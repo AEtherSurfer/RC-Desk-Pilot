@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Bonsai.Objects;
-using Bonsai.Core.Interfaces;
-using Bonsai.Objects.Meshes;
-using Microsoft.DirectX;
-
-namespace RCSim
+﻿namespace RCSim
 {
+    using Bonsai.Objects;
+    using Bonsai.Objects.Meshes;
+    using Microsoft.DirectX;
+    using Microsoft.DirectX.Direct3D;
+    using System;
+    using System.Collections.Generic;
+
     internal class Birds : IDisposable
     {
         internal class Bird : GameObject
@@ -24,49 +23,53 @@ namespace RCSim
             private float speed = 3f;
             private float acc = 3f;
 
-            
             public Bird(int number)
             {
                 this.Number = number;
-                AnimatedXMesh mesh = new AnimatedXMesh("data/bird.x");
+
+                var mesh = new AnimatedXMesh("data/bird.x");
                 mesh.GameObject = this;
                 mesh.SetTrackSpeed(0, 2.9f + ((number % 10) * 0.2f));
-                this.Position = new Vector3((number % 10), 5f + 0.5f*number%6, ((number + 5) % 10) * number/20f + 50f);
+
+                this.Position = new Vector3((number % 10), 5f + 0.5f * number % 6, ((number + 5) % 10) * number / 20f + 50f);
                 this.Velocity = new Vector3(1, 0, 0);
                 this.Mesh = mesh;
                 this.Scale = new Vector3(0.0005f, 0.0005f, 0.0005f);
             }
 
-            public override void  Dispose()
+            public override void Dispose()
             {
- 	            base.Dispose();
+                base.Dispose();
             }
 
-            public void OnFrameMove(Microsoft.DirectX.Direct3D.Device device, double totalTime, float elapsedTime, int targetBird)
+            public void OnFrameMove(Device device, double totalTime, float elapsedTime, int targetBird)
             {
-                Scared = false;
-                if (Update)
+                this.Scared = false;
+
+                if (this.Update)
                 {
-                    speed = 3f;
-                    acc = 3f;
-                    Acceleration = Target - Position;
-                    if (Number == targetBird)
+                    this.speed = 3f;
+                    this.acc = 3f;
+                    this.Acceleration = this.Target - this.Position;
+
+                    if (this.Number == targetBird)
                     {
-                        if ((Target.Y == 0.0f) && (Acceleration.LengthSq() > 100))
+                        if (this.Target.Y == 0.0f && this.Acceleration.LengthSq() > 100)
                         {
-                            Acceleration = new Vector3(Target.X, 10f, Target.Z) - Position;
+                            this.Acceleration = new Vector3(this.Target.X, 10f, this.Target.Z) - this.Position;
                         }
                     }
                     else
                     {
-                        foreach (Bird bird in Birds)
+                        foreach (Bird bird in this.Birds)
                         {
                             if (bird.Number != this.Number)
                             {
-                                Vector3 vDistance = bird.Position - Position;
+                                Vector3 vDistance = bird.Position - this.Position;
+
                                 if (vDistance.LengthSq() < 0.5f)
                                 {
-                                    Acceleration += Position - bird.Position;
+                                    this.Acceleration += this.Position - bird.Position;
                                 }
                             }
                         }
@@ -74,35 +77,56 @@ namespace RCSim
 
                     if (RCSim.Birds.ScareCrow != null)
                     {
-                        Vector3 vDistance = RCSim.Birds.ScareCrow.Position - Position;
+                        Vector3 vDistance = RCSim.Birds.ScareCrow.Position - this.Position;
+
                         if (vDistance.LengthSq() < 100f)
                         {
-                            Acceleration = Position - RCSim.Birds.ScareCrow.Position;
+                            this.Acceleration = this.Position - RCSim.Birds.ScareCrow.Position;
+
                             if (Position.Y < 1.0f)
+                            {
                                 Acceleration.Y = 1.0f;
-                            speed = 6f;
-                            acc = 6f;
-                            Scared = true;
+                            }
+
+                            this.speed = 6f;
+                            this.acc = 6f;
+                            this.Scared = true;
                         }
                     }
-                    Acceleration.Normalize();                    
+
+                    this.Acceleration.Normalize();
                 }
-                this.Velocity += acc * Acceleration * elapsedTime;
-                Velocity.Normalize();
-                this.Position += elapsedTime * speed * Velocity;
+
+                this.Velocity += this.acc * this.Acceleration * elapsedTime;
+                this.Velocity.Normalize();
+
+                this.Position += elapsedTime * this.speed * this.Velocity;
+
                 if (Position.Y < 0)
-                    Position = new Vector3(Position.X, 0, Position.Z);
-                if (Update)
+                {
+                    this.Position = new Vector3(this.Position.X, 0, this.Position.Z);
+                }
+
+                if (this.Update)
                 {
                     // Determine roll
                     Vector3 left = Vector3.Cross(Velocity, Up);
-                    roll -= (Vector3.Dot(left, Acceleration) + roll) * UpdateElapsed;
-                    if (roll < -1) roll = -1f;
-                    else if (roll > 1) roll = 1f;
-                    this.YawPitchRoll = new Vector3((float)Math.Atan2(Velocity.Z, -Velocity.X) + (float)Math.PI / 2, Velocity.Y / speed, roll);
-                    Update = false;
+                    this.roll -= (Vector3.Dot(left, this.Acceleration) + this.roll) * this.UpdateElapsed;
+
+                    if (this.roll < -1)
+                    {
+                        this.roll = -1f;
+                    }
+                    else if (this.roll > 1)
+                    {
+                        this.roll = 1f;
+                    }
+
+                    this.YawPitchRoll = new Vector3((float)Math.Atan2(this.Velocity.Z, -this.Velocity.X) + (float)Math.PI / 2, this.Velocity.Y / this.speed, this.roll);
+                    this.Update = false;
                 }
-                //this.RotateYAngle = (float)Math.Atan2(Velocity.Z , -Velocity.X) + (float)Math.PI/2;
+
+
                 base.OnFrameMove(device, totalTime, elapsedTime);
             }
         }
@@ -134,7 +158,7 @@ namespace RCSim
 
         public bool TargetReached
         {
-            get { return (birds[targetBird].Position - birds[targetBird].Target).LengthSq() < 2.0f; }
+            get { return (this.birds[this.targetBird].Position - this.birds[this.targetBird].Target).LengthSq() < 2.0f; }
         }
 
         public bool Scared
@@ -147,14 +171,19 @@ namespace RCSim
         public Birds(int nBirds)
         {
             this.nBirds = nBirds;
+
             for (int i = 0; i < nBirds; i++)
             {
-                birds.Add(new Bird(i));
+                this.birds.Add(new Bird(i));
             }
+
             foreach (Bird bird in birds)
+            {
                 bird.Birds = birds;
-            targetBird = 0;
-            birds[0].Target = new Vector3(0f, 10f, 20f);
+            }
+
+            this.targetBird = 0;
+            this.birds[0].Target = new Vector3(0f, 10f, 20f);
         }
         #endregion
 
@@ -166,8 +195,9 @@ namespace RCSim
         {
             foreach (Bird bird in birds)
             {
-                bird.Dispose();                
+                bird.Dispose();
             }
+
             birds.Clear();
         }
         #endregion
@@ -175,56 +205,64 @@ namespace RCSim
         #region Public methods
         public void SetRandomTarget()
         {
-            targetBird = rnd.Next(nBirds);
-            birds[targetBird].Target = new Vector3((float)rnd.Next(200) - 100f, (float)(rnd.Next(5, 10)), (float)rnd.Next(200) - 100f);
+            this.targetBird = this.rnd.Next(this.nBirds);
+            this.birds[this.targetBird].Target = new Vector3((float)rnd.Next(200) - 100f, (float)(this.rnd.Next(5, 10)), (float)this.rnd.Next(200) - 100f);
         }
 
         public void SetTarget(Vector3 target)
         {
-            targetBird = rnd.Next(nBirds);
-            birds[targetBird].Target = target;
+            this.targetBird = this.rnd.Next(this.nBirds);
+            this.birds[this.targetBird].Target = target;
         }
         #endregion
 
         #region IFrameworkCallback Members
-        public void OnFrameMove(Microsoft.DirectX.Direct3D.Device device, double totalTime, float elapsedTime)
+        public void OnFrameMove(Device device, double totalTime, float elapsedTime)
         {
             int nScared = 0;
-            if (Random && (totalTime > lastUpdate + 10.0))
+
+            if (this.Random && (totalTime > this.lastUpdate + 10.0))
             {
-                SetRandomTarget();
-                lastUpdate = totalTime;
+                this.SetRandomTarget();
+                this.lastUpdate = totalTime;
             }
-            if (totalTime > lastMoveUpdate + 0.1f)
-            {                
-                foreach (Bird bird in birds)
+
+            if (totalTime > this.lastMoveUpdate + 0.1f)
+            {
+                foreach (Bird bird in this.birds)
                 {
                     bird.Update = true;
-                    bird.UpdateElapsed = (float)(totalTime - lastMoveUpdate);
+                    bird.UpdateElapsed = (float)(totalTime - this.lastMoveUpdate);
                 }
-                lastMoveUpdate = totalTime;
+
+                this.lastMoveUpdate = totalTime;
             }
-            foreach (Bird bird in birds)
+
+            foreach (Bird bird in this.birds)
             {
-                if (bird.Number != targetBird)
-                    bird.Target = birds[targetBird].Position;
-                bird.OnFrameMove(device, totalTime, elapsedTime, targetBird);
+                if (bird.Number != this.targetBird)
+                {
+                    bird.Target = this.birds[this.targetBird].Position;
+                }
+
+                bird.OnFrameMove(device, totalTime, elapsedTime, this.targetBird);
+
                 if (bird.Scared)
+                {
                     nScared++;
+                }
             }
-            if (nScared > nBirds / 2)
-                Scared = true;
-            else
-                Scared = false;
+
+            this.Scared = nScared > nBirds / 2;
         }
 
-        public void OnFrameRender(Microsoft.DirectX.Direct3D.Device device, double totalTime, float elapsedTime)
+        public void OnFrameRender(Device device, double totalTime, float elapsedTime)
         {
-            foreach (Bird bird in birds)
+            foreach (Bird bird in this.birds)
+            {
                 bird.OnFrameRender(device, totalTime, elapsedTime);
+            }
         }
         #endregion
-
-       
     }
 }
