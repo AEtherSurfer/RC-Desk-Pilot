@@ -82,6 +82,8 @@
   <ItemGroup>
     <Compile Include="AdManager.cs" />
     <Compile Include="AirplaneModel.cs" />
+    <Compile Include="Api\AircraftParameters.cs" />
+    <Compile Include="Api\FlightModelSimple.cs" />
     <Compile Include="Birds.cs" />
     <Compile Include="Bombing.cs" />
     <Compile Include="Cameras\CinematicCamera.cs" />
@@ -152,6 +154,7 @@
     <None Include="Aircraft\extra\extra_tailwheel.x">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Api\Documentation\Manual.doc" />
     <None Include="app.config" />
     <None Include="data\parkbench.x">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -212,10 +215,6 @@
     <ProjectReference Include="..\Bonsai\Bonsai.csproj">
       <Project>{7BF988CF-D9FF-4372-8E9C-B31D577D94D9}</Project>
       <Name>Bonsai</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\RcDeskPilot.Api\RcDeskPilot.Api.csproj">
-      <Project>{2cc8ec3a-672c-4705-a880-6f3a626d1a4e}</Project>
-      <Name>RcDeskPilot.Api</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
