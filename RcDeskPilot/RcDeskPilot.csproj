@@ -80,7 +80,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdManager.cs" />
     <Compile Include="AirplaneModel.cs" />
     <Compile Include="Api\AircraftParameters.cs" />
     <Compile Include="Api\FlightModelSimple.cs" />

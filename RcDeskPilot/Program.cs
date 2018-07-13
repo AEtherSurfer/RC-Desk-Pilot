@@ -19,7 +19,7 @@
     using System;
     using System.Drawing;
 
-    class Program : IFrameworkCallback, IDeviceCreation
+    internal class Program : IFrameworkCallback, IDeviceCreation
     {
         #region Private fields
         private Framework framework = null; // Framework for samples
@@ -42,7 +42,6 @@
         private InputManager inputManager = null;
         private Hud osd = null;
         private TransparentObjectManager transparentObjectManager = null;
-        private AdManager adManager = null;
         private double currentTime = 0;
         //private Vector3 pilotPosition = new Vector3(0.1f, 1.7f, -15.0f);
         private Demo demo = null;
@@ -1058,11 +1057,6 @@
 
             game = new Game(this);
             game.CurrentGameType = Game.GameType.None;
-
-            if (adManager == null)
-            {
-                adManager = new AdManager(scenery, this);
-            }
 
             Bonsai.Utils.SplashScreen.SetSplashStatus("Almost done");
             // Hide the splashscreen
