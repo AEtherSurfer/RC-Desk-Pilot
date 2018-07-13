@@ -281,6 +281,7 @@
         static int Main()
         {
             System.Windows.Forms.Application.EnableVisualStyles();
+
             using (Framework framework = new Framework())
             {
                 Program RcDeskPilot = new Program(framework);

@@ -188,7 +188,6 @@
     <Compile Include="Towing.cs" />
     <Compile Include="Tractor.cs" />
     <Compile Include="Tree.cs" />
-    <Compile Include="Utils\Downloader.cs" />
     <Compile Include="Vegetation.cs" />
     <Compile Include="Water.cs">
       <SubType>Code</SubType>
